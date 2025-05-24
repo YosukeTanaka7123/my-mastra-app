@@ -1,0 +1,22 @@
+{
+  "name": "mcp-server",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "lint": "biome lint .",
+    "check:types": "tsc --noEmit",
+    "build": "tsx esbuild.config.ts",
+    "preview": "node dist/index.mjs"
+  },
+  "dependencies": {
+    "@hono/node-server": "catalog:",
+    "hono": "catalog:"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "catalog:",
+    "@types/node": "catalog:",
+    "esbuild": "catalog:",
+    "tsx": "catalog:",
+    "typescript": "catalog:"
+  }
+}
