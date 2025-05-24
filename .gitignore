@@ -1,5 +1,6 @@
 # env
 .env
+.env.development
 .env.production
 
 # Logs
@@ -29,3 +30,9 @@ dist-ssr
 
 # Turborepo
 .turbo
+
+# Mastra
+output.txt
+.mastra
+*.db
+*.db-*

@@ -17,7 +17,7 @@
     },
     "build": {
       "dependsOn": ["lint", "check:types", "^build"],
-      "outputs": ["dist/**"]
+      "outputs": ["dist/**", ".mastra/**"]
     },
     "preview": {
       "dependsOn": ["^preview"],
