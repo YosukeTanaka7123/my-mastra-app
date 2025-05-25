@@ -8,6 +8,7 @@
   "scripts": {
     "dev": "mastra dev",
     "lint": "biome lint .",
+    "test": "tsx tests/agent.test.ts",
     "build": "mastra build",
     "preview": "node --env-file=.env .mastra/output/index.mjs"
   },

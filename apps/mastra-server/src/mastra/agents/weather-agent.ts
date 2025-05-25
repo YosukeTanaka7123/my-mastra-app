@@ -2,6 +2,7 @@ import { google } from "@ai-sdk/google";
 import { Agent } from "@mastra/core/agent";
 import { LibSQLStore } from "@mastra/libsql";
 import { Memory } from "@mastra/memory";
+import { weatherInfo } from "~/mastra/tools/weatherInfo";
 
 export const weatherAgent = new Agent({
   name: "天気エージェント",
@@ -14,9 +15,12 @@ export const weatherAgent = new Agent({
       - 複数の情報を含む場所（例：「New York, NY」）の場合は、最も関連性の高い部分（例：「New York」）を使用してください
       - 湿度、風の状態、降水量などの関連情報を含めてください
       - 回答は簡潔かつ情報豊富にしてください
+      - weatherInfoツールを使用して現在の天気データを取得してください
 `,
   model: google("gemini-2.0-flash-lite"),
-
+  tools: {
+    weatherInfo,
+  },
   memory: new Memory({
     storage: new LibSQLStore({
       url: "file:../mastra.db", // path is relative to the .mastra/output directory

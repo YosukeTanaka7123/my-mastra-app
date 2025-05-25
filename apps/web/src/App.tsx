@@ -48,6 +48,7 @@ function App() {
           },
         ],
       });
+      console.log("Response:", JSON.stringify(response, null, 2));
       setChat((prev) => [
         ...prev,
         {
@@ -65,8 +66,7 @@ function App() {
   return (
     <div className="w-screen h-screen flex justify-center p-4">
       <div className="container flex flex-col gap-4">
-        <h2 className="text-2xl">Mastra Agent</h2>
-        <div className="flex flex-col gap-4 p-4 grow bg-accent rounded-md">
+        <div className="flex flex-col gap-4 p-4 grow bg-accent rounded-md overflow-auto">
           {chat.map((line) => (
             <ChatLine key={line.id} {...line} />
           ))}
@@ -115,7 +115,7 @@ const ChatLine = ({ role, message, side }: ChatLineProps) => {
   return (
     <div className={`flex items-center gap-4 ${sideClass}`}>
       {role === "assistant" ? <MastraAvator /> : <UserAvatar />}
-      <div className="min-w-fit max-w-1/2 h-full flex items-center p-4 bg-white rounded-md shadow">
+      <div className="w-fit sm:max-w-3/5 h-full flex items-center p-4 bg-white rounded-md shadow">
         <p className="whitespace-pre-wrap">{message}</p>
       </div>
     </div>
